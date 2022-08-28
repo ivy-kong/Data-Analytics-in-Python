@@ -1,0 +1,19 @@
+-- SQL query to return majors in recent_grads where men were outnumbered by women
+SELECT Major, ShareWomen  
+  FROM recent_grads 
+ WHERE ShareWomen < 0.5;
+
+-- Return all majors that had a majority of female students and a median salary greater than 50000
+SELECT Major, Major_category, Median, ShareWomen 
+  FROM recent_grads 
+ WHERE ShareWomen > 0.5 
+   AND Median > 50000;
+   
+-- First 20 majors that either have a median salary greater than or equal to 10,000 or more men than women
+SELECT Major, Median, Unemployed 
+  FROM recent_grads 
+ WHERE Median >= 10000 
+    OR Men > Women
+ LIMIT 20;
+ 
+ 
